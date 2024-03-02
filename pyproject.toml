@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "ccacards"
+version = "0.1.0"
+description = "GTK based playing cards"
+authors = ["ccdale <chris.charles.allison+git@gmail.com>"]
+license = "X11"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+ccaerrors = "^0.1.2"
+ccalogging = "^0.5.3"
+pygobject = "^3.46.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
