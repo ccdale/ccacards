@@ -7,7 +7,7 @@ license = "X11"
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.12"
 ccaerrors = "^0.1.2"
 ccalogging = "^0.5.3"
 platformdirs = "^4.2.0"

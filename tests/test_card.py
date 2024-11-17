@@ -13,3 +13,10 @@ def test_Card_maths():
     assert c.value == 6
     assert c.valuename == "Seven"
     assert str(c) == "Seven of Clubs"
+
+
+def test_Card_Zero():
+    c = Card(0)  # Blank, non-existent card
+    assert c.value == 0
+    assert c.valuename == "Blank"
+    assert str(c) == "Blank of Blank"

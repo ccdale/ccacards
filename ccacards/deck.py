@@ -16,7 +16,7 @@ class Deck(Stack):
     def __init__(self, pullaces=False, shuffleaces=True):
         """Initialises a Deck of 52 playing cards.
 
-        Extracts the Aces into a seperate list of pullaces is True
+        Extracts the Aces into a seperate list if pullaces is True
         Randomises the order of the list of Aces if shuffleaces is True
         """
         try:

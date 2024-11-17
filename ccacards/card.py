@@ -45,10 +45,15 @@ class Card:
         try:
             self.facedown = facedown
             self.index = index
-            self.value = (self.index - 1) % 13
-            self.valuename = self.valueNames[self.value]
-            self.suitindex = (self.index - 1) // 13
-            self.suit = self.suitNames[self.suitindex]
+            if self.index == 0:
+                self.value = 0
+                self.valuename = "Blank"
+                self.suit = "Blank"
+            else:
+                self.value = (self.index - 1) % 13
+                self.valuename = self.valueNames[self.value]
+                self.suitindex = (self.index - 1) // 13
+                self.suit = self.suitNames[self.suitindex]
         except Exception as e:
             errorRaise(sys.exc_info()[2], e)
 
