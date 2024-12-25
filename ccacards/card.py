@@ -50,9 +50,8 @@ class Card:
                 self.valuename = "Blank"
                 self.suit = "Blank"
             else:
-                self.value = (self.index - 1) % 13
+                self.suitindex, self.value = divmod(self.index - 1, 13)
                 self.valuename = self.valueNames[self.value]
-                self.suitindex = (self.index - 1) // 13
                 self.suit = self.suitNames[self.suitindex]
         except Exception as e:
             errorRaise(sys.exc_info()[2], e)
