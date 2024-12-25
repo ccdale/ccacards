@@ -43,6 +43,8 @@ class Card:
                 52 == King of Clubs
         """
         try:
+            if index < 0 or index > 52:
+                raise ValueError(f"Card index out of range: {index}")
             self.facedown = facedown
             self.index = index
             if self.index == 0:
@@ -67,3 +69,30 @@ class Card:
             return f"Card({self.index})"
         except Exception as e:
             errorRaise(sys.exc_info()[2], e)
+
+
+if __name__ == "__main__":
+    card = Card(1)
+    print(card)
+    card = Card(52)
+    print(card)
+    card = Card(0)
+    print(card)
+    card = Card(13)
+    print(card)
+    card = Card(14)
+    print(card)
+    card = Card(26)
+    print(card)
+    card = Card(27)
+    print(card)
+    card = Card(39)
+    print(card)
+    card = Card(40)
+    print(card)
+    card = Card(51)
+    print(card)
+    card = Card(52)
+    print(card)
+    card = Card(53)
+    print(card)
