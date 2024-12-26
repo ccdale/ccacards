@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "ccacards"
 version = "0.1.4"
-description = "GTK based playing cards"
+description = "python playing cards base"
 authors = ["ccdale <chris.charles.allison+git@gmail.com>"]
 license = "GPL-3.0-or-later"
 readme = "README.md"
@@ -10,10 +10,10 @@ readme = "README.md"
 python = "^3.12"
 ccaerrors = "^0.1.2"
 ccalogging = "^0.5.3"
-platformdirs = "^4.2.0"
+platformdirs = "^4.3.6"
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.0.2"
+pytest = "^8.3.4"
 
 [build-system]
 requires = ["poetry-core"]
