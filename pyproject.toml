@@ -3,7 +3,7 @@ name = "ccacards"
 version = "0.1.4"
 description = "GTK based playing cards"
 authors = ["ccdale <chris.charles.allison+git@gmail.com>"]
-license = "X11"
+license = "GPL-3.0-or-later"
 readme = "README.md"
 
 [tool.poetry.dependencies]
