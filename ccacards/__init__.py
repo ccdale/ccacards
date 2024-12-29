@@ -1,6 +1,6 @@
 import platformdirs
 
-__version__ = "0.1.21"
+__version__ = "0.1.22"
 __appname__ = "ccacards"
 
 __carddir__ = platformdirs.user_data_dir(__appname__)
