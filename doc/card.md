@@ -26,9 +26,7 @@ Representation of a Playing Card as a Python object.
          40 == Ace of Clubs
          52 == King of Clubs
 ```
-
         `facedown`: bool
-
             If True, the card will be face down
 
 ## Properties
