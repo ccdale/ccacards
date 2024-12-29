@@ -49,7 +49,7 @@ class Card:
         try:
             if index < 0 or index > 52:
                 raise ValueError(f"Card index out of range: {index}")
-            self.facedown = facedown
+            self._facedown = facedown
             self._index = index
             if self._index == 0:
                 self._value = 0
@@ -59,7 +59,7 @@ class Card:
                 self._suitindex, self._value = divmod(self._index - 1, 13)
                 self._valuename = self.valueNames[self._value]
                 self._suit = self.suitNames[self._suitindex]
-            self.imagefile = Path(__carddir__, f"{self._index}.png")
+            self._imagefile = Path(__carddir__, f"{self._index}.png")
         except Exception as e:
             errorRaise(sys.exc_info()[2], e)
 
@@ -91,6 +91,20 @@ class Card:
     def suit(self):
         """Returns the string name of the card suit"""
         return self._suit
+
+    @property
+    def imagefile(self):
+        """Returns the path to the image file for this card"""
+        return self._imagefile
+
+    @property
+    def facedown(self):
+        """Returns True if the card is face down"""
+        return self._facedown
+
+    def flip(self):
+        """Flips the card face up or face down"""
+        self._facedown = not self._facedown
 
 
 if __name__ == "__main__":

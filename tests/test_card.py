@@ -20,3 +20,12 @@ def test_Card_Zero():
     assert c.value == 0
     assert c.valuename == "Blank"
     assert str(c) == "Blank of Blank"
+
+
+def test_Card_facedown():
+    c = Card(14, facedown=True)  # Ace of Hearts
+    assert c.value == 0
+    assert c.valuename == "Ace"
+    assert str(c) == "Face Down"
+    c.flip()  # Flip it over
+    assert str(c) == "Ace of Hearts"
