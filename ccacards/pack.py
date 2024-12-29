@@ -10,11 +10,11 @@ from ccacards.stack import Stack
 log = ccalogging.log
 
 
-class Deck(Stack):
-    """Representation of a Deck of Playing Cards."""
+class Pack(Stack):
+    """Representation of a Pack of Playing Cards."""
 
     def __init__(self, pullaces=False, shuffleaces=True):
-        """Initialises a Deck of 52 playing cards.
+        """Initialises a Pack of 52 playing cards.
 
         Extracts the Aces into a seperate list if pullaces is True
         Randomises the order of the list of Aces if shuffleaces is True
@@ -26,7 +26,7 @@ class Deck(Stack):
                 self.aces = []
                 acepos = [i for i in range(0, 52, 13)]
                 # we need to pull the aces in reverse order
-                # as when we pop each of them off the deck
+                # as when we pop each of them off the pack
                 # all the cards change position by 1
                 acepos.reverse()
                 for i in acepos:
@@ -45,7 +45,7 @@ class Deck(Stack):
             errorRaise(sys.exc_info()[2], e)
 
     def deall(self, number=1):
-        """Deals <number> of cards from the top of the deck
+        """Deals <number> of cards from the top of the pack
 
         returns a list of Card() objects.
         """
@@ -58,7 +58,7 @@ class Deck(Stack):
             errorRaise(sys.exc_info()[2], e)
 
     def deal(self, number=1):
-        """Deals <number> of cards from the top of the deck.
+        """Deals <number> of cards from the top of the pack.
 
         If number is 1 then returns a Card() object else
         returns a list of Card() objects.
