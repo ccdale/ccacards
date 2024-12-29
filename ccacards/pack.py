@@ -5,12 +5,12 @@ from ccaerrors import errorExit, errorNotify, errorRaise
 import ccalogging
 
 from ccacards.card import Card
-from ccacards.stack import Stack
+from ccacards.pile import Pile
 
 log = ccalogging.log
 
 
-class Pack(Stack):
+class Pack(Pile):
     """Representation of a Pack of Playing Cards."""
 
     def __init__(self, pullaces=False, shuffleaces=True):
