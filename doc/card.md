@@ -45,3 +45,15 @@ Representation of a Playing Card as a Python object.
 
 * `imagefile`
     Returns the path to the image file for this card
+
+* `__repr__`
+    Returns a string representation of the card object
+    ```
+    repr(c) == 'Card(1)'
+    ```
+
+* `__str__`
+    Returns a string representation of the actual card
+    ```
+    str(c) == 'Ace of Spades'
+    ```
