@@ -6,7 +6,8 @@ Representation of a Playing Card as a Python object.
 
 ## Methods
 
-* __init__(index, facedown=False)
+* `__init__(index, facedown=False)`
+
     Initialises the Card
 
     `c = Card(1) # Ace of Spades`
@@ -15,15 +16,15 @@ Representation of a Playing Card as a Python object.
         `index`: int 0 - 52
 
 ```
-            0 is a placeholder for 'no card' i.e. blank space
-            1 == Ace of Spades
-            13 == King of Spades
-            14 == Ace of Hearts
-            26 == King of Hearts
-            27 == Ace of Diamonds
-            39 == King of Diamonds
-            40 == Ace of Clubs
-            52 == King of Clubs
+          0 is a placeholder for 'no card' i.e. blank space
+          1 == Ace of Spades
+         13 == King of Spades
+         14 == Ace of Hearts
+         26 == King of Hearts
+         27 == Ace of Diamonds
+         39 == King of Diamonds
+         40 == Ace of Clubs
+         52 == King of Clubs
 ```
 
 ## Properties
