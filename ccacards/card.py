@@ -50,30 +50,47 @@ class Card:
             if index < 0 or index > 52:
                 raise ValueError(f"Card index out of range: {index}")
             self.facedown = facedown
-            self.index = index
-            if self.index == 0:
-                self.value = 0
-                self.valuename = "Blank"
-                self.suit = "Blank"
+            self._index = index
+            if self._index == 0:
+                self._value = 0
+                self._valuename = "Blank"
+                self._suit = "Blank"
             else:
-                self.suitindex, self.value = divmod(self.index - 1, 13)
-                self.valuename = self.valueNames[self.value]
-                self.suit = self.suitNames[self.suitindex]
-            self.imagefile = Path(__carddir__, f"{self.index}.png")
+                self._suitindex, self._value = divmod(self._index - 1, 13)
+                self._valuename = self.valueNames[self._value]
+                self._suit = self.suitNames[self._suitindex]
+            self.imagefile = Path(__carddir__, f"{self._index}.png")
         except Exception as e:
             errorRaise(sys.exc_info()[2], e)
 
     def __str__(self):
         try:
-            return "Face Down" if self.facedown else f"{self.valuename} of {self.suit}"
+            return (
+                "Face Down" if self.facedown else f"{self._valuename} of {self._suit}"
+            )
         except Exception as e:
             errorRaise(sys.exc_info()[2], e)
 
     def __repr__(self):
         try:
-            return f"Card({self.index})"
+            return f"Card({self._index})"
         except Exception as e:
             errorRaise(sys.exc_info()[2], e)
+
+    @property
+    def value(self):
+        """Returns the value of the card 1 - 13"""
+        return self._value
+
+    @property
+    def valuename(self):
+        """Returns the string name of the card value"""
+        return self._valuename
+
+    @property
+    def suit(self):
+        """Returns the string name of the card suit"""
+        return self._suit
 
 
 if __name__ == "__main__":

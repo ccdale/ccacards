@@ -42,6 +42,9 @@ fi
 read name version < <(poetry version)
 
 init="src/${name}/__init__.py"
+if [[ ! -r $init ]]; then
+    init="${name}/__init__.py"
+fi
 testfn="tests/test_${name}.py"
 # xterrver=aws_terraform/main.tf
 # nbterrver=aws_terraform/main-no-bucket.tf
