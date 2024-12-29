@@ -1,7 +1,11 @@
+from pathlib import Path
 import sys
 
 from ccaerrors import errorExit, errorNotify, errorRaise
 import ccalogging
+import platformdirs
+
+from ccacards import __appname__, __carddir__, __version__
 
 log = ccalogging.log
 
@@ -55,6 +59,7 @@ class Card:
                 self.suitindex, self.value = divmod(self.index - 1, 13)
                 self.valuename = self.valueNames[self.value]
                 self.suit = self.suitNames[self.suitindex]
+            self.imagefile = Path(__carddir__, f"{self.index}.png")
         except Exception as e:
             errorRaise(sys.exc_info()[2], e)
 
