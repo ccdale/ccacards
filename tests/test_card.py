@@ -1,5 +1,6 @@
-from ccacards.card import Card
 import pytest
+
+from ccacards.card import Card
 
 
 def test_Card():

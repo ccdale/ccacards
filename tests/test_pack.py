@@ -1,5 +1,5 @@
-from ccacards.pack import Pack
 from ccacards.card import Card
+from ccacards.pack import Pack
 
 
 def test_Pack():

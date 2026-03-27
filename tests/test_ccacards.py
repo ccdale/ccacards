@@ -1,8 +1,8 @@
 import tomllib
 from pathlib import Path
 
-from ccacards import __appname__, __version__, getAppname, getVersion
 import ccacards
+from ccacards import __appname__, __version__, getAppname, getVersion
 
 
 def _project_metadata() -> tuple[str, str]:
