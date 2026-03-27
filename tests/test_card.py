@@ -1,4 +1,5 @@
 from ccacards.card import Card
+import pytest
 
 
 def test_Card():
@@ -29,3 +30,15 @@ def test_Card_facedown():
     assert str(c) == "Face Down"
     c.flip()  # Flip it over
     assert str(c) == "Ace of Hearts"
+
+
+def test_Card_repr_and_imagefile():
+    c = Card(14)
+    assert repr(c) == "Card(14)"
+    assert c.imagefile.name == "14.png"
+
+
+@pytest.mark.parametrize("bad_index", [-1, 53])
+def test_Card_index_out_of_range_raises(bad_index):
+    with pytest.raises(ValueError):
+        Card(bad_index)

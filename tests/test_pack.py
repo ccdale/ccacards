@@ -1,4 +1,5 @@
 from ccacards.pack import Pack
+from ccacards.card import Card
 
 
 def test_Pack():
@@ -23,3 +24,17 @@ def test_Pack_deall():
     assert len(d) == 47
     assert str(c[-1]) == "Nine of Clubs"
     assert str(c[0]) == "King of Clubs"
+
+
+def test_Pack_deal_one_returns_card():
+    d = Pack()
+    c = d.deal(1)
+    assert isinstance(c, Card)
+    assert str(c) == "King of Clubs"
+
+
+def test_Pack_deall_clamps_to_pack_size():
+    d = Pack()
+    cards = d.deall(100)
+    assert len(cards) == 52
+    assert len(d) == 0
