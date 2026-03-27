@@ -1,6 +1,6 @@
 [project]
 name = "ccacards"
-version = "0.1.35"
+version = "0.1.36"
 description = "python playing cards base"
 authors = [{ name = "ccdale", email = "chris.charles.allison+git@gmail.com" }]
 license = { text = "GPL-3.0-or-later" }

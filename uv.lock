@@ -4,7 +4,7 @@ requires-python = ">=3.12, <4.0"
 
 [[package]]
 name = "ccacards"
-version = "0.1.35"
+version = "0.1.36"
 source = { editable = "." }
 dependencies = [
     { name = "ccaerrors" },
