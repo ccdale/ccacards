@@ -21,25 +21,30 @@ gitroot=$(git rev-parse --show-toplevel 2>/dev/null);
 # if not set, patch is inserted as a default
 xlevel=${1:-"patch"}
 
-# ensure this is a poetry managed project
+# ensure this is a uv managed project
 pfn=pyproject.toml
 
 cd "$gitroot"
 
 if [ ! -r "${pfn}" ]; then
-    echo "not poetry"
+    echo "not a pyproject project"
     exit 0
 fi
 
-# update the version
-msg=$(poetry version $xlevel)
-git add ${pfn}
-addlock=$(git status|$SED -n '/^Changes not stage/,$s/.*\(poetry.lock\).*/\1/p')
-if [ "X" != "X${addlock}" ]; then
-    git add poetry.lock
+if ! command -v uv >/dev/null 2>&1; then
+    echo "uv is required"
+    exit 1
 fi
 
-read name version < <(poetry version)
+# update the version
+msg=$(uv version --bump "$xlevel" --no-sync)
+git add ${pfn}
+addlock=$(git status|$SED -n '/^Changes not stage/,$s/.*\(uv.lock\).*/\1/p')
+if [ "X" != "X${addlock}" ]; then
+    git add uv.lock
+fi
+
+read name version < <(python3 -c 'import tomllib; p = tomllib.load(open("pyproject.toml", "rb")); print(p["project"]["name"], p["project"]["version"])')
 
 init="src/${name}/__init__.py"
 if [[ ! -r $init ]]; then
@@ -51,7 +56,7 @@ testfn="tests/test_${name}.py"
 # terrver=terraform/main.tf
 
 
-read pversion < <(poetry run python -c  "from ${name} import __version__;print(__version__)")
+read pversion < <(uv run python -c  "from ${name} import __version__;print(__version__)")
 if [[ "${pversion}" != "${version}" ]]; then
     if [[ -r $init ]]; then
         $SED -i 's/\(__version__ = "\)[0-9."]\+$/\1'${version}'"/' $init
