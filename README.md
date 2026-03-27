@@ -6,4 +6,4 @@ Playing card routines
 
 - Create/sync environment: `uv sync`
 - Run tests: `uv run pytest`
-- Bump version: `./scripts/update-versions.sh [patch|minor|major]`
+- Bump version: `uv version --bump patch --no-sync`
